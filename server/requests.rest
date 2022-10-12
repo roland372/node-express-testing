@@ -1,0 +1,63 @@
+# GET http://localhost:5000/books?page=2&limit=2
+# GET http://localhost:5000/books
+GET http://localhost:5000/books?favourites=false
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzQ0OGFlNTc3MjFmYzEzY2Y1MjE0ZmMiLCJpYXQiOjE2NjU1NTc4NzB9.x1IRQxLYzAxk2LHTG-JDGltZLIIz-L8Zr-AkPOOXFVg
+Content-Type: application/json
+
+###
+GET http://localhost:5000/books/6344158028394088e9f6fbb0
+
+  
+###
+POST http://localhost:5000/books
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzQ0OGFlNTc3MjFmYzEzY2Y1MjE0ZmMiLCJpYXQiOjE2NjU1NTc4NzB9.x1IRQxLYzAxk2LHTG-JDGltZLIIz-L8Zr-AkPOOXFVg
+Content-Type: application/json
+
+{
+  "author": "John Doe",
+  "favourites": false,
+  "imageUrl" : "http://www.cams-it.com/wp-content/uploads/2015/05/default-placeholder-150x200.png",
+  "lastModified": "2022-10-10T08:29:31.010Z",
+  "pages": 250,
+  "status": "Reading",
+  "rating": 10,
+  "title" : "title 1"
+}
+
+###
+DELETE http://localhost:5000/books/634410981b0e0c3e03eba964
+
+###
+PATCH http://localhost:5000/books/63441e3820c1b231ff105178
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzQ0OGFlNTc3MjFmYzEzY2Y1MjE0ZmMiLCJpYXQiOjE2NjU1NTc4NzB9.x1IRQxLYzAxk2LHTG-JDGltZLIIz-L8Zr-AkPOOXFVg
+Content-Type: application/json
+
+{
+  "author": "author 50",
+  "favourites": false,
+  "imageUrl" : "http://www.cams-it.com/wp-content/uploads/2015/05/default-placeholder-150x200.png",
+  "lastModified": "2022-10-10T08:29:31.010Z",
+  "pages": 2500,
+  "status": "Plan to readd",
+  "rating": 10,
+  "title" : "title 12"
+}
+
+###
+POST http://localhost:5000/user/register
+Content-Type: application/json
+
+{
+    "username": "user123",
+    "email": "test6@test.com",
+    "password": "123456"
+}
+
+###
+POST http://localhost:5000/user/login
+Content-Type: application/json
+
+{
+    "email": "test@test.com",
+    "password": "123456"
+}
