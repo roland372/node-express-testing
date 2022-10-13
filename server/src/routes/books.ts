@@ -1,7 +1,6 @@
 import express from 'express';
 
 const router = express.Router();
-const verify = require('./verifyToken');
 
 import {
 	getBooks,
@@ -14,7 +13,7 @@ import {
 // all routes here already start with /books
 router.get('/', getBooks);
 
-router.post('/', verify, createBook);
+router.post('/', createBook);
 
 router.get('/:id', getBook);
 
