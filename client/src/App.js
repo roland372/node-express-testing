@@ -30,17 +30,32 @@ function App() {
 			password: password,
 		}).then(res => {
 			const token = res?.data;
-			console.log(token);
-			sessionStorage.setItem('token', token);
+			// console.log(token);
+			// console.log(document.cookie);
+
+			// sessionStorage.setItem('token', token);
+			document.cookie = 'token=' + token;
 		});
 	};
 
 	const logout = async () => {
-		sessionStorage.removeItem('token');
+		// sessionStorage.removeItem('token');
+		// document.cookie = 'token=;expires=' + new Date(0).toUTCString();
+		await Axios.post(
+			'http://localhost:5000/user/logout',
+			{},
+			{ withCredentials: true }
+		)
+			.then(res => res.data)
+			.catch(error => {
+				throw error;
+			});
+		// console.log('test');
 	};
 
 	const getBooks = async () => {
-		let token = sessionStorage.getItem('token');
+		// let token = sessionStorage.getItem('token');
+		let token = document.cookie.slice(6);
 
 		// await Axios.get('http://localhost:5000/books?page=2&limit=2', {
 		await Axios.get('http://localhost:5000/books', {

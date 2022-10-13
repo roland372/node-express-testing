@@ -1,7 +1,7 @@
 # GET http://localhost:5000/books?page=2&limit=2
-# GET http://localhost:5000/books
-GET http://localhost:5000/books?favourites=false
-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzQ0OGFlNTc3MjFmYzEzY2Y1MjE0ZmMiLCJpYXQiOjE2NjU1NTc4NzB9.x1IRQxLYzAxk2LHTG-JDGltZLIIz-L8Zr-AkPOOXFVg
+# GET http://localhost:5000/books?favourites=false
+GET http://localhost:5000/books
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzQ0OGFlNTc3MjFmYzEzY2Y1MjE0ZmMiLCJpYXQiOjE2NjU1ODgyNjh9.2fty_kutjyW5aRaksIWVgOlSUPI6JrLpo_laeT0azvo
 Content-Type: application/json
 
 ###
@@ -10,7 +10,7 @@ GET http://localhost:5000/books/6344158028394088e9f6fbb0
   
 ###
 POST http://localhost:5000/books
-auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzQ0OGFlNTc3MjFmYzEzY2Y1MjE0ZmMiLCJpYXQiOjE2NjU1NTc4NzB9.x1IRQxLYzAxk2LHTG-JDGltZLIIz-L8Zr-AkPOOXFVg
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MzQ0OGFlNTc3MjFmYzEzY2Y1MjE0ZmMiLCJpYXQiOjE2NjU1ODgyNjh9.2fty_kutjyW5aRaksIWVgOlSUPI6JrLpo_laeT0azvo
 Content-Type: application/json
 
 {
@@ -61,3 +61,6 @@ Content-Type: application/json
     "email": "test@test.com",
     "password": "123456"
 }
+###
+
+POST http://localhost:5000/user/logout

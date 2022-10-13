@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 const cors = require('cors');
 import dotenv from 'dotenv';
 dotenv.config();
+const session = require('express-session');
 
 import booksRoutes from './routes/books';
 import authRoute from './routes/auth';
@@ -11,6 +12,8 @@ const verify = require('./routes/verifyToken');
 
 const bookSchema = require('./models/book');
 import paginatedResults from './utils/pagination';
+
+let cookieParser = require('cookie-parser');
 
 const app = express(); // initialize express application
 const PORT = 5000;
@@ -27,8 +30,18 @@ const db = mongoose.connection;
 db.on('error', err => console.log(err));
 db.on('open', () => console.log('connected to DB'));
 
-app.use(cors());
+app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
+// app.use(cors());
 app.use(bodyParser.json());
+app.use(cookieParser());
+
+app.use(
+	session({
+		secret: process.env.MONGO_URI,
+		resave: false,
+		saveUninitialized: true,
+	})
+);
 
 // routes
 app.use('/user', authRoute);
